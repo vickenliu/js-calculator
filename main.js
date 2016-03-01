@@ -1,24 +1,44 @@
+$('td').mousedown(function(){
+	$(this).css('opacity',0.5);
+}).mouseup(function(){
+	$(this).css('opacity',1);
+});
 var show=[],newRound=false;
 $('td').click(function(){
 	var content=$(this).text(),fun=$(this).data('function');
-	if(newRound || fun==='clear'){
+	
+	if(fun==='clear'){
 		$('#display').empty();
 		show=[];newRound=false;
-	}
-	// to display typing
-	if(fun!=='equal'&& fun!=='clear'){
-		if(content==='CE'){
-			show=show.slice(0,-1);
-		}else{
-			show.push(content);
-		}
+	} else if(newRound && fun==='operator'){
+		show=[];
+		show.push($('#display').html(),content);
 		$('#display').html(show.join(''));
-	}else{  //caculating
-		$('#display').html(sum(show));
-		newRound=true;
+		newRound=false;
+	}else if(newRound && fun!=='operator'&& fun!=='equal'){
+			newRound=false;
+			show=[];
+			if(content==='CE'){
+				show=($('#display').html()).split('');
+				show=show.slice(0,-1);
+			}else{
+				show.push(content);
+			}
+			$('#display').html(show.join(''));
+	} else{
+				// to display typing
+		if(fun!=='equal'&& fun!=='clear'){
+			if(content==='CE'){
+				show=show.slice(0,-1);
+			}else{
+				show.push(content);
+			}
+			$('#display').html(show.join(''));
+		}else{  //caculating
+			$('#display').html(sum(show));
+			newRound=true;
+		}
 	}
-
-
 })
 
 function sum(arr){
