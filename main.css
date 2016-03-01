@@ -6,6 +6,7 @@ body {
 }
 table{
 	margin-left: 50px;
+	margin-top: 20px;
 }
 table, td {
    border: 1px solid black;
@@ -15,6 +16,7 @@ td{
 	height: 50px;
 	text-align: center;
 	font-size: 18px;
+	background-color: white;
 }
 th{
 	height: 50px;
