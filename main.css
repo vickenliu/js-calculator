@@ -1,0 +1,29 @@
+*{
+	box-sizing:border-box;
+}
+body {
+	background-color: #84B1ED;
+}
+table{
+	margin-left: 50px;
+}
+table, td {
+   border: 1px solid black;
+}
+td{
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	font-size: 18px;
+}
+th{
+	height: 50px;
+	text-align: right;
+}
+td:hover{
+	cursor: pointer;
+}
+td.noDig{
+	background-color: #fcbe32;
+	color: white;
+}
